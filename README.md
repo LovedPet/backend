@@ -1,4 +1,4 @@
-# boilerplate-node
+# template
 
 
 ### Todo list
