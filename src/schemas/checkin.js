@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-// Validação do payload de criação de um checkin 
+// Validação do payload de criação de um checkin
 const create = Joi.object().keys({
   pet: Joi.object().keys({
     name: Joi
@@ -9,8 +9,8 @@ const create = Joi.object().keys({
 
     owner: Joi
       .string()
-      .required()
-  })
+      .required(),
+  }),
 
 })
 

@@ -13,7 +13,7 @@ class BaseError extends Error {
 }
 
 class ForbiddenError extends BaseError {
-  constructor(message) {
+  constructor (message) {
     super('ForbiddenError', 403, message)
   }
 }
@@ -25,7 +25,7 @@ class NotFound extends BaseError {
 }
 
 class InternalServerError extends BaseError {
-  constructor() {
+  constructor () {
     super('InternalServerError', 500)
   }
 }
@@ -49,7 +49,7 @@ class BadRequestError extends BaseError {
     const buildFieldPath = (accumulator, current) => (
       `${accumulator}.${current}`)
 
-    const formattedDetails = rawError.details.map(error => ({
+    const formattedDetails = rawError.details.map((error) => ({
       message: error.message,
       field: error.path.reduce(buildFieldPath),
     }))
@@ -62,5 +62,5 @@ module.exports = {
   BadRequestError,
   InternalServerError,
   NotFound,
-  ForbiddenError
+  ForbiddenError,
 }

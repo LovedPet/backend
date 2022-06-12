@@ -1,7 +1,7 @@
 const environment = 'test'
 
-const getConfig = configs => configs[environment]
+const getConfig = (configs) => configs[environment]
 
 module.exports = {
-  getConfig
+  getConfig,
 }

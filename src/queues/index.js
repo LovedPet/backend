@@ -6,12 +6,12 @@ const queueThree = console.log('queue one')
 const queues = {
   'queue-one': queueOne,
   'queue-two': queueTwo,
-  'queue-three':queueThree
+  'queue-three': queueThree,
 }
 
-const getQueue = name => queues[name]
+const getQueue = (name) => queues[name]
 
 module.exports = {
   getQueue,
-  queues
+  queues,
 }
