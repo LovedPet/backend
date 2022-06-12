@@ -12,4 +12,4 @@ jobs:
     - name: "Install dependencies"
       run: npm install
     - name: "----- Running ------"
-      run: npm run dev:server
+      run: npm run test

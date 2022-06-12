@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="LovedPet Jest Tests" tests="1" failures="0" time="0.697">
-  <testsuite name="Health check" errors="0" failures="0" skipped="0" timestamp="2022-06-12T16:19:24" time="0.639" tests="1">
-    <testcase classname="Health check Should return status 200" name="Health check Should return status 200" time="0.021">
-    </testcase>
-  </testsuite>
-</testsuites>
