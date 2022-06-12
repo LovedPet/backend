@@ -126,7 +126,6 @@ module.exports = {
   roots: [
     '<rootDir>/src',
     '<rootDir>/test',
-    '<rootDir>/lambdas',
   ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
