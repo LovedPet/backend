@@ -1,18 +1,20 @@
 name: ci-lovedpet-workflow
 on:
-  [push]
+  push:
+    branches:
+      - master
   # pull_request:
   #   branches:
   #     - master
 jobs:
-  check-app:
+  build:
     runs-on: [ubuntu-latest]
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      with:   
-        node-version: 16
-      - run: npm run dev:server
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+  steps:
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    with:   
+      node-version: 16
+    - run: npm run dev:server
+    - run: echo "🍏 This job's status is ${{ job.status }}."
