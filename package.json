@@ -1,5 +1,5 @@
 {
-  "name": "poc-finances",
+  "name": "lovedpet-backend",
   "version": "1.0.0",
   "description": "PoC My Budget",
   "main": "src/bin/server.js",
@@ -8,13 +8,13 @@
   },
   "scripts": {
     "dev:server": "nodemon src/bin/server.js",
-    "lint": "eslint 'test/**/*.js' 'src/**/*.js' --fix",
+    "lint": "eslint 'test/**/*.js' 'src/**/*.js'",
     "start:server": "node src/bin/server.js",
     "test": "jest --forceExit --verbose test --env=node"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arrudacaio/poc-finances.git"
+    "url": "git+https://github.com/LovedPet/lovedpet-backend.git"
   },
   "keywords": [
     "finances"
@@ -22,9 +22,9 @@
   "author": "Caio Arruda @arrudacaio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arrudacaio/poc-finances/issues"
+    "url": "https://github.com/LovedPet/lovedpet-backend/issues"
   },
-  "homepage": "https://github.com/arrudacaio/poc-finances#readme",
+  "homepage": "https://github.com/LovedPet/lovedpet-backend#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^8.13.0",

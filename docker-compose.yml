@@ -1,0 +1,47 @@
+version: '2.3'
+
+services:
+  base:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/lovedpet-backend
+      - /lovedpet-backend/node_modules
+    env_file: 
+      - .env.example
+
+  database:
+    container_name: database
+    image: postgres:12.8-alpine
+    environment:
+      - POSTGRES_DB=lovedpet
+      - POSTGRES_USER=pet
+      - POSTGRES_PASSWORD=pet
+    ports:
+      - "5432:5432"
+
+
+  lint:
+    extends: base
+    entrypoint: npm run lint
+  
+  migrate: 
+    extends: base
+    entrypoint: npm run migrate
+    depends_on:
+      - database
+
+  lovedpet-server:
+    container_name: lovedpet-server
+    extends: base 
+    command: npm run dev:server
+    ports:
+      - "3000:3000"
+    links:
+      - database
+    depends_on:
+      - database
+      - migrate
+    environment:
+      - APP_TYPE=server
