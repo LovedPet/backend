@@ -1,7 +1,11 @@
 module.exports = {
   extends: ['airbnb-base'],
   env: {
-    "jest": true
+    'jest': true,
+  },
+  parserOptions: {
+    'parser': 'babel-eslint',
+    'ecmaVersion': 2020,
   },
   rules: {
     'max-classes-per-file': ['error', 9],

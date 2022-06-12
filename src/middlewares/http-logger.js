@@ -1,19 +1,19 @@
 const cuid = require('cuid')
 const logger = require('../lib/logger')
 
-const httpLogger = (req, _, _) => {
+const httpLogger = (request, _, _) => {
   const startTime = Date.now()
 
-  const requestId = req.get('x-request-id') || cuid()
+  const requestId = request.get('x-request-id') || cuid()
 
   logger.info({
     message: 'Request received',
     request_id: requestId,
-    url: req.url,
-    path: req.route.path,
-    method: req.method,
-    params: req.params,
-    body: req.body,
+    url: request.url,
+    path: request.route.path,
+    method: request.method,
+    params: request.params,
+    body: request.body,
     from: 'request',
     start_time: startTime,
   })
