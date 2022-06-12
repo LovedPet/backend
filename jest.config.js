@@ -96,16 +96,16 @@ module.exports = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: [
-  //   'default',
-  //   [
-  //     'jest-junit', {
-  //       outputDirectory: 'reports/junit',
-  //       outputName: 'jest-junit.xml',
-  //       suiteName: 'Pix Jest Tests',
-  //     },
-  //   ],
-  // ],
+  reporters: [
+    'default',
+    [
+      'jest-junit', {
+        outputDirectory: 'reports/junit',
+        outputName: 'jest-junit.xml',
+        suiteName: 'LovedPet Jest Tests',
+      },
+    ],
+  ],
 
   // Automatically reset mock state between every test
   // resetMocks: false,
@@ -126,6 +126,7 @@ module.exports = {
   roots: [
     '<rootDir>/src',
     '<rootDir>/test',
+    '<rootDir>/lambdas',
   ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
@@ -158,7 +159,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
   ],
-
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],

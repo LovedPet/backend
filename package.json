@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev:server": "nodemon src/bin/server.js",
+    "lint": "eslint 'test/**/*.js' 'src/**/*.js' --fix",
     "start:server": "node src/bin/server.js",
     "test": "jest --forceExit --verbose test --env=node"
   },
@@ -25,11 +26,10 @@
   },
   "homepage": "https://github.com/arrudacaio/poc-finances#readme",
   "devDependencies": {
-    "escriba": "^2.10.0",
     "eslint": "^8.13.0",
-    "eslint-config-pagarme-base": "^3.0.0",
+    "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "jest": "^25.1.0",
+    "eslint-plugin-jest": "^26.5.3",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   },
@@ -37,7 +37,10 @@
     "aws-sdk": "^2.1116.0",
     "axios": "^0.26.1",
     "cuid": "^2.1.8",
+    "escriba": "^2.10.0",
     "express": "^4.17.3",
+    "jest": "^25.1.0",
+    "jest-junit": "11.0.1",
     "joi": "^17.6.0",
     "log4js": "^6.4.5",
     "pg": "^8.7.3",
