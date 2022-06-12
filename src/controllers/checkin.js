@@ -2,20 +2,19 @@ const { BadRequestError } = require('../lib/errors')
 
 const create = async (request, response, next) => {
   try {
-    const { 
+    const {
       value: somevalue,
-      error: validationError
+      error: validationError,
     } = createSchema.validate(request.body)
 
-    if(validationError) {
+    if (validationError) {
       throw new BadRequestError(validationError)
     }
   } catch (error) {
     return next(error)
-    
   }
 }
 
 module.exports = {
-  create
+  create,
 }

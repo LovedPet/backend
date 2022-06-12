@@ -1,8 +1,7 @@
 const log4js = require('log4js')
 const escriba = require('escriba')
 
-
-const jsonLayout = () => logEvent => logEvent.data.join('\n')
+const jsonLayout = () => (logEvent) => logEvent.data.join('\n')
 
 log4js.addLayout('json', jsonLayout)
 
@@ -10,23 +9,22 @@ log4js.configure({
   appenders: {
     out: {
       type: 'stdout',
-      layout: { type: 'json' }
-    }
+      layout: { type: 'json' },
+    },
   },
   categories: {
     default: {
       appenders: ['out'],
-      level: 'info'
-    }
-  }
+      level: 'info',
+    },
+  },
 })
 
 const loggerEngine = log4js.getLogger('BUDGET') // Changes here -> name of service
 
-
 const { logger } = escriba({
   loggerEngine,
-  service: 'budget'
+  service: 'budget',
 })
 
 const makeLogger = () => {
