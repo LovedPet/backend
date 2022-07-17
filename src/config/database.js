@@ -4,6 +4,7 @@ const {
   DATABASE_USER,
   DATABASE_PASSWORD,
   DATABASE_NAME,
+  DATABASE_MAX_CONNECTIONS
 } = process.env
 
 const defaultSettings = {
