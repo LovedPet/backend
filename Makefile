@@ -1,5 +1,8 @@
+all: database lovedpet
+.PHONY: all
+
 database:
-	@docker-compose up -d database 
+	@docker-compose up -d database
 .PHONY: database
 
 lovedpet:
@@ -9,3 +12,7 @@ lovedpet:
 lint:
 	@docker-compose run lint
 .PHONY: lint
+
+down:
+	@docker-compose down -v --rmi local
+.PHONY: down

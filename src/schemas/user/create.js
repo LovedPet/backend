@@ -1,14 +1,12 @@
 const Joi = require('joi')
- 
-const createUserSchema = Joi.object.keys({
+
+const schema = Joi.object({
   email: Joi.string()
     .required(),
   password: Joi.string()
     .required(),
   name_nursery: Joi.string()
     .required(),
-}).required()
- 
-module.exports = {
-  createUserSchema,
-}
+})
+
+module.exports = schema

@@ -8,8 +8,8 @@ const {
 } = process.env
 
 const onListening = () => logger.info({
-  message: 'Budget server is up',
-  operation: 'budget_startup',
+  message: 'LovedPet server is up',
+  operation: 'lovedpet_startup',
   metadata: {
     port: PORT,
   },

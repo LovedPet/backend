@@ -1,3 +1,5 @@
+const { getConfig } = require('.')
+
 const {
   DATABASE_HOST,
   DATABASE_PORT,
@@ -11,9 +13,9 @@ const defaultSettings = {
   dialect: 'postgres',
   host: DATABASE_HOST,
   port: DATABASE_PORT,
+  database: DATABASE_NAME,
   username: DATABASE_USER,
   password: DATABASE_PASSWORD,
-  database: DATABASE_NAME,
   logging: false,
   define: {
     timestamps: true,
@@ -26,8 +28,8 @@ const defaultSettings = {
   },
 }
 
-module.exports = {
+module.exports = getConfig({
   development: defaultSettings,
   test: defaultSettings,
   production: defaultSettings,
-}
+})

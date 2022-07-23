@@ -20,11 +20,11 @@ log4js.configure({
   },
 })
 
-const loggerEngine = log4js.getLogger('BUDGET') // Changes here -> name of service
+const loggerEngine = log4js.getLogger('LOVEDPET') // Changes here -> name of service
 
 const { logger } = escriba({
   loggerEngine,
-  service: 'budget',
+  service: 'lovedpet',
 })
 
 const makeLogger = () => {

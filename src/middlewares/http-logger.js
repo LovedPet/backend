@@ -1,7 +1,7 @@
 const cuid = require('cuid')
 const logger = require('../lib/logger')
 
-const httpLogger = (request, _, _) => {
+const httpLogger = (request, _, next) => {
   const startTime = Date.now()
 
   const requestId = request.get('x-request-id') || cuid()
@@ -17,6 +17,8 @@ const httpLogger = (request, _, _) => {
     from: 'request',
     start_time: startTime,
   })
+
+  next()
 }
 
 module.exports = httpLogger
