@@ -9,7 +9,7 @@
   "scripts": {
     "dev:server": "nodemon src/bin/server.js",
     "lint": "eslint 'test/**/*.js' 'src/**/*.js'",
-    "start:server": "node src/bin/server.js",
+    "start": "node src/bin/server.js",
     "migrate": "node_modules/.bin/sequelize db:migrate",
     "test": "jest --forceExit --verbose test --env=node"
   },
