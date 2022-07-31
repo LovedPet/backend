@@ -9,6 +9,7 @@ const {
   DATABASE_MAX_CONNECTIONS
 } = process.env
 
+console.log('Testando env >>', DATABASE_USER)
 const defaultSettings = {
   dialect: 'postgres',
   host: DATABASE_HOST,
