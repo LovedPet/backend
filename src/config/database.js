@@ -27,6 +27,9 @@ const defaultSettings = {
     max: Number(DATABASE_MAX_CONNECTIONS) || 50,
     min: 1,
   },
+  ssl: {
+    rejectUnauthorized: false,
+  },
 }
 
 module.exports = getConfig({
