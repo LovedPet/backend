@@ -1,5 +1,5 @@
 const express = require('express')
-
+const cors = require('cors')
 // Controllers
 const userController = require('../controllers/user')
 const httpLogger = require('../middlewares/http-logger')
@@ -8,6 +8,7 @@ const httpLogger = require('../middlewares/http-logger')
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/_health_check', (_, res) => res.sendStatus(200))
 
