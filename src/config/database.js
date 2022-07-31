@@ -1,4 +1,5 @@
 const { getConfig } = require('.')
+require('dotenv').config()
 
 const {
   DATABASE_HOST,
@@ -27,8 +28,11 @@ const defaultSettings = {
     max: Number(DATABASE_MAX_CONNECTIONS) || 50,
     min: 1,
   },
-  ssl: {
-    rejectUnauthorized: false,
+  dialectOptions: {
+    ssl: {
+      require: true, // This will help you. But you will see nwe error
+      rejectUnauthorized: false // This line will fix new error
+    }
   },
 }
 

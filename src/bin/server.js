@@ -1,9 +1,7 @@
 const app = require('../server/app')
 const logger = require('../lib/logger')
-const dotenv = require('dotenv')
 const { setupGracefulShutdownServer } = require('../lib/setupGracefulShutdownServer')
 
-dotenv.config()
 
 const {
   PORT = 3000,
