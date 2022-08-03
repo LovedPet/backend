@@ -18,6 +18,23 @@ const filterPayload = (payload) => {
   }
 }
 
+const hasCredentialsInternal = async ({ email, _ }) => {
+  try {
+    logger.info({
+      message: 'Starting to verify user credentials',
+      operation: 'credentials_user',
+      email,
+    })
+
+    const userAlreadyExists = await User.findOne({ raw: true, where: { email } })
+
+    return userAlreadyExists
+
+  } catch (error) {
+    throw error
+  }
+}
+
 const create = async (payload) => {
 
   const {
@@ -63,4 +80,5 @@ const create = async (payload) => {
 
 module.exports = {
   create,
+  hasCredentialsInternal,
 }

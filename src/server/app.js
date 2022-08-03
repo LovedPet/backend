@@ -20,5 +20,11 @@ app.post(
   userController.create
 )
 
+app.post(
+  '/login',
+  httpLogger,
+  userController.login
+)
+
 // app.use(errorHandler)
 module.exports = app
