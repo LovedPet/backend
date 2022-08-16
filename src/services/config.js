@@ -1,4 +1,5 @@
 // const { config } = require('dotenv')
+const { Config } = require('aws-sdk')
 const database = require('../database')
 const { BadRequestError } = require('../lib/errors')
 const {
@@ -32,6 +33,33 @@ const create = async (payload) => {
   }
 }
 
+const getConfigurationByUser = async (user_id) => {
+  try {
+    const user = await User.findByPk(user_id)
+
+    if (!user) {
+      throw new BadRequestError('Errado')
+    }
+
+    const configByUser = await Configuration.findOne({
+      where: {
+        user_id: user_id
+      }
+    })
+
+    if (!configByUser) {
+      throw new BadRequestError('Does not exist configuration by this user')
+    }
+
+    return configByUser
+
+  } catch (error) {
+    throw error
+
+  }
+}
+
 module.exports = {
   create,
+  getConfigurationByUser
 }

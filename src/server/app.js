@@ -33,5 +33,11 @@ app.post(
   configController.create
 )
 
+app.get(
+  '/:user_id/configurations',
+  httpLogger,
+  configController.getConfigUser
+)
+
 // app.use(errorHandler)
 module.exports = app

@@ -24,8 +24,6 @@ const create = async (request, response, next) => {
       user_id: user_id
     }
 
-    console.log('Entrou no controler ', data)
-
     const config = await configService.create(data)
 
     return response.status(201).send(config)
@@ -33,9 +31,24 @@ const create = async (request, response, next) => {
     return next(error)
 
   }
+}
 
+const getConfigUser = async (request, response, next) => {
+  try {
+
+    const { user_id } = request.params
+
+    const config = await configService.getConfigurationByUser(String(user_id))
+
+    return response.status(200).json(config)
+
+  } catch (error) {
+    return next(error)
+
+  }
 }
 
 module.exports = {
-  create
+  create,
+  getConfigUser
 }
