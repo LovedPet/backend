@@ -28,12 +28,12 @@ const defaultSettings = {
     max: Number(DATABASE_MAX_CONNECTIONS) || 50,
     min: 1,
   },
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true, // This will help you. But you will see nwe error
-  //     rejectUnauthorized: false // This line will fix new error
-  //   }
-  // },
+  dialectOptions: {
+    ssl: {
+      require: true, // This will help you. But you will see nwe error
+      rejectUnauthorized: false // This line will fix new error
+    }
+  },
 }
 
 module.exports = getConfig({
