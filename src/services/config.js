@@ -13,13 +13,15 @@ const create = async (payload) => {
 
     const user = await User.findByPk(payload.user_id)
 
-    console.log('Procurou user  ', payload)
+    // console.log('Procurou user  ', payload)
 
+    if (!user) {
+      throw new BadRequestError('Errado')
+    }
 
-    if (!user) throw new BadRequestError('Errado')
-
-    delete payload.tags
+    // delete payload.tags
     console.log('pay ', payload)
+    // const config = payload
     const config = await Configuration.create(payload)
 
     // const config = await Configuration.create(payload)

@@ -26,9 +26,9 @@ const create = async (request, response, next) => {
 
     console.log('Entrou no controler ', data)
 
-    await configService.create(data)
+    const config = await configService.create(data)
 
-    return response.status(201)
+    return response.status(201).send(config)
   } catch (error) {
     return next(error)
 
