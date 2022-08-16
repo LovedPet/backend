@@ -2,8 +2,9 @@ const express = require('express')
 const cors = require('cors')
 // Controllers
 const userController = require('../controllers/user')
+const configController = require('../controllers/configuration')
 const httpLogger = require('../middlewares/http-logger')
-// const errorHandler =
+const errorHandler = require('../middlewares/error-handler')
 
 const app = express()
 
@@ -24,6 +25,12 @@ app.post(
   '/login',
   httpLogger,
   userController.login
+)
+
+app.post(
+  '/:user_id/configurations',
+  httpLogger,
+  configController.create
 )
 
 // app.use(errorHandler)

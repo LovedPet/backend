@@ -1,5 +1,5 @@
 const tableName = 'Users'
- 
+
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable(
     tableName,
@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
       },
+      configuration_id: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: true,
+      },
       created_at: {
         type: Sequelize.DataTypes.DATE,
         allowNull: false,
@@ -30,6 +34,6 @@ module.exports = {
       },
     }
   ),
- 
+
   down: queryInterface => queryInterface.dropTable(tableName),
 }
