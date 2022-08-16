@@ -16,13 +16,19 @@ const create = async (request, response, next) => {
     if (!pet_limits || !tags || !value_hour || !scheduler_active || !user_id) {
       throw new BadRequestError('Preencha todos os campos corretamente')
     }
-    const data = { pet_limits, tags, value_hour, scheduler_active, user_id }
+    const data = {
+      pet_limits: pet_limits,
+      tags: tags,
+      value_hour: value_hour,
+      scheduler_active: scheduler_active,
+      user_id: user_id
+    }
 
     console.log('Entrou no controler ', data)
 
-    const config = await configService.create(data)
+    await configService.create(data)
 
-    return response.status(201).send(config)
+    return response.status(201)
   } catch (error) {
     return next(error)
 

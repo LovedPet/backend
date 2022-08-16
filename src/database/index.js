@@ -5,10 +5,12 @@ const rawModels = require('./models')
 
 const initializeDatabase = () => {
   const database = new Sequelize(config)
+
   const createInstance = model => ({
     model,
     instance: model.create(database)
   })
+
 
   const associateModels = ({ model, instance }) => {
     if (model.associate) {
@@ -16,10 +18,12 @@ const initializeDatabase = () => {
     }
   }
 
+
   Object.values(rawModels)
     .map(createInstance)
     .map(associateModels)
 
+  // await database.sync({ force: true })
 
   return database
 }

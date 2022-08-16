@@ -1,4 +1,4 @@
-const { config } = require('dotenv')
+// const { config } = require('dotenv')
 const database = require('../database')
 const { BadRequestError } = require('../lib/errors')
 const {
@@ -18,7 +18,11 @@ const create = async (payload) => {
 
     if (!user) throw new BadRequestError('Errado')
 
+    delete payload.tags
+    console.log('pay ', payload)
     const config = await Configuration.create(payload)
+
+    // const config = await Configuration.create(payload)
 
     return config
   } catch (error) {
