@@ -3,6 +3,7 @@ const cors = require('cors')
 // Controllers
 const userController = require('../controllers/user')
 const configController = require('../controllers/configuration')
+const schedulerController = require('../controllers/scheduler')
 const httpLogger = require('../middlewares/http-logger')
 const errorHandler = require('../middlewares/error-handler')
 
@@ -37,6 +38,12 @@ app.get(
   '/:user_id/configurations',
   httpLogger,
   configController.getConfigUser
+)
+
+app.post(
+  '/:user_id/scheduler',
+  httpLogger,
+  schedulerController.create
 )
 
 // app.use(errorHandler)
