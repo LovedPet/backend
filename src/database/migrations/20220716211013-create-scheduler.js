@@ -1,4 +1,4 @@
-const tableName = 'Configurations'
+const tableName = 'Schedulers'
 
 module.exports = {
   up: (queryInterface, { DataTypes }) => queryInterface.createTable(

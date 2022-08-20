@@ -1,4 +1,6 @@
 const database = require('../database')
+const { BadRequestError } = require('../lib/errors')
+
 const {
   Scheduler,
   User
@@ -22,6 +24,31 @@ const create = async (payload) => {
   }
 }
 
+const get = async (user_id, separate) => {
+  try {
+    const user = await User.findByPk(user_id)
+
+    if (!user) {
+      throw new BadRequestError('Errado')
+    }
+
+    let condition = { user_id: user_id }
+
+    if (separate) {
+      condition.separate = separate
+    }
+
+    const schedulers = await Scheduler.findAll({ where: condition })
+
+
+    return schedulers
+  } catch (error) {
+    throw error
+  }
+}
+
+
 module.exports = {
   create,
+  get
 }

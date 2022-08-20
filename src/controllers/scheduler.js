@@ -7,11 +7,11 @@ const create = async (request, response, next) => {
 
     const {
       pet_info,
-      hour,
+      hour = 1,
       tag,
     } = request.body
 
-    if (!pet_info || !tag || !hour) {
+    if (!pet_info || !tag || hour < 0) {
       throw new BadRequestError('Preencha todos os campos corretamente')
     }
 
@@ -24,8 +24,29 @@ const create = async (request, response, next) => {
   }
 }
 
+const get = async (request, response, next) => {
+  try {
+    const { user_id } = request.params
+    const { separate = null } = request.query
+
+    console.log('by Separate? ' + separate)
+    if (!user_id) {
+      throw new BadRequestError('Usuário não existe')
+    }
+
+    const schedulers = await schedulerService.get(user_id, separate)
+
+    return response.status(200).json(schedulers)
+
+  } catch (error) {
+    return next(error)
+
+  }
+}
+
 module.exports = {
   create,
+  get
 }
 
 // {

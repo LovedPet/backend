@@ -23,6 +23,11 @@ const attributes = {
   user_id: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  separate: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
   }
 }
 

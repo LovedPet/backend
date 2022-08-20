@@ -46,5 +46,11 @@ app.post(
   schedulerController.create
 )
 
+app.get(
+  '/:user_id/scheduler',
+  httpLogger,
+  schedulerController.get
+)
+
 // app.use(errorHandler)
 module.exports = app
