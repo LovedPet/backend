@@ -53,7 +53,8 @@ const login = async (request, response, next) => {
 
     response.status(200).send({
       auth: true,
-      token
+      token,
+      user_id: id
     })
 
   } catch (error) {
