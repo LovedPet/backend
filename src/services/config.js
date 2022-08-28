@@ -29,11 +29,11 @@ const create = async (payload) => {
 
 const getConfigurationByUser = async (user_id) => {
   try {
-    const user = await User.findByPk(user_id)
+    // const user = await User.findByPk(user_id)
 
-    if (!user) {
-      throw new BadRequestError('Errado')
-    }
+    // if (!user) {
+    //   throw new BadRequestError('Errado')
+    // }
 
     const configByUser = await Configuration.findOne({
       where: {
