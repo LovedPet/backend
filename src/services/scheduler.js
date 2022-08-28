@@ -18,8 +18,15 @@ const create = async (payload) => {
 
     // console.log('Inside service with this user >', user)
 
-
-    const schedule = await Scheduler.create(payload)
+    const schedule = await Scheduler.create({
+      pet_info: {
+        pet_name: payload.pet_name,
+        pet_owner: payload.pet_owner,
+      },
+      tag: payload.tag,
+      hour: payload.hour,
+      separate: payload.separate
+    })
 
     console.log('Inside service with this schedule >', schedule)
 
