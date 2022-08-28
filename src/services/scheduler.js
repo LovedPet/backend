@@ -8,6 +8,7 @@ const {
 
 const create = async (payload) => {
   try {
+    console.log('Inside service with this payload >', payload)
     const user = await User.findByPk(payload.user_id)
 
 
@@ -15,7 +16,12 @@ const create = async (payload) => {
       throw new BadRequestError('Errado')
     }
 
+    console.log('Inside service with this user >', user)
+
+
     const schedule = await Scheduler.create(payload)
+
+    console.log('Inside service with this schedule >', schedule)
 
 
     return schedule
