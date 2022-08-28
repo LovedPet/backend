@@ -25,7 +25,8 @@ const create = async (payload) => {
       },
       tag: payload.tag,
       hour: payload.hour,
-      separate: payload.separate
+      separate: payload.separate,
+      user_id: payload.user_id
     })
 
     console.log('Inside service with this schedule >', schedule)
