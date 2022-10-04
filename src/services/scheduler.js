@@ -10,24 +10,22 @@ const create = async (payload) => {
   try {
     console.log('Inside service with this payload >', payload)
     // const user = await User.findByPk(payload.user_id)
-
-
     // if (!user) {
     //   throw new BadRequestError('Errado')
     // }
 
-    // console.log('Inside service with this user >', user)
     const x = {
-      pet_name: payload.pet_name,
-      pet_owner: payload.pet_owner,
-      address_owner_pet: payload.address_owner_pet,
-      race_pet: payload.racePet,
-      weight_pet: payload.weightPet
+      pet_name: payload.pet_info.pet_name,
+      pet_owner: payload.pet_info.pet_owner,
+      address_owner_pet: payload.pet_info.address_owner_pet,
+      race_pet: payload.pet_info.race_pet,
+      weight_pet: payload.pet_info.weight_pet
     }
 
+    const final = JSON.stringify(x)
 
     const schedule = await Scheduler.create({
-      pet_info: JSON.stringify(x),
+      pet_info: final,
       tag: payload.tag,
       hour: payload.hour,
       separate: payload.separate,
