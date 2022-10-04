@@ -20,6 +20,9 @@ const create = async (payload) => {
     const x = {
       pet_name: payload.pet_name,
       pet_owner: payload.pet_owner,
+      address_owner_pet: payload.address_owner_pet,
+      race_pet: payload.racePet,
+      weight_pet: payload.weightPet
     }
 
 
