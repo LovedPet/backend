@@ -21,6 +21,7 @@ const create = async (payload) => {
       race_pet: payload.pet_info.race_pet,
       weight_pet: payload.pet_info.weight_pet
     }
+    console.log('OLHAAAAAAAAA', payload.pet_info)
 
     const final = JSON.stringify(x)
 
