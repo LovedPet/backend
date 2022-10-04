@@ -9,7 +9,7 @@ const attributes = {
     defaultValue: cuidBuilder('sc_'),
   },
   pet_info: {
-    type: DataTypes.JSON,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   hour: {
