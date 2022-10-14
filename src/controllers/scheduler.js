@@ -28,6 +28,7 @@ const get = async (request, response, next) => {
   try {
     const { user_id } = request.params
     const { separate = null } = request.query
+    const { all_pets = null }= request.query
 
     console.log('by Separate? ' + separate)
     if (!user_id) {
@@ -35,6 +36,10 @@ const get = async (request, response, next) => {
     }
 
     const schedulers = await schedulerService.get(user_id, separate)
+
+    if(all_pets) {
+      schedulers.filter((sc) => sc.pet_info)
+    }
 
     return response.status(200).json(schedulers)
 
