@@ -35,8 +35,9 @@ const create = database => database.define(
   options
 )
 
-const associate = (Users, {Scheduler}) => {
+const associate = (Users, {Scheduler, Configuration}) => {
   Users.hasMany(Scheduler)
+  Users.hasMany(Configuration)
 }
 
 module.exports = {

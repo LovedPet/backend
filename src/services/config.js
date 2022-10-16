@@ -14,9 +14,9 @@ const create = async (payload) => {
     const user = await User.findByPk(payload.user_id)
 
 
-    if (!user) {
-      throw new BadRequestError('Errado')
-    }
+    // if (!user) {
+    //   throw new BadRequestError('Errado')
+    // }
 
     const config = await Configuration.create(payload)
 
