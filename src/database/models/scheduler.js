@@ -45,7 +45,7 @@ const create = database => database.define(
 )
 
 const associate = (Schedulers, { User }) => {
-  Schedulers.belongsTo(User, {
+  Schedulers.belongsToMany(User, {
     foreign_key: 'user_id'
   })
 }
