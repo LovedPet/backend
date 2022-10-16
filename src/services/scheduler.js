@@ -33,7 +33,7 @@ const create = async (payload) => {
     console.log('Inside service with this schedule >', testando)
 
 
-    const schedule = await Scheduler.create({
+    await Scheduler.create({
       pet_info: final,
       hour: payload.hour,
       tag: payload.tag,
@@ -41,10 +41,7 @@ const create = async (payload) => {
       separate: payload.separate || false,
     }, {raw: true})
 
-    console.log('Terminou >', schedule.toJSON())
 
-
-    return schedule
   } catch (error) {
     console.log(error)
     throw error

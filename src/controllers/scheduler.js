@@ -15,9 +15,9 @@ const create = async (request, response, next) => {
       throw new BadRequestError('Preencha todos os campos corretamente')
     }
 
-    const schedule = await schedulerService.create({ pet_info, hour, tag, user_id })
+    await schedulerService.create({ pet_info, hour, tag, user_id })
 
-    return response.status(201).json(schedule)
+    return response.status(201)
 
   } catch (error) {
     return next(error)
