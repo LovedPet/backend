@@ -44,7 +44,13 @@ const create = database => database.define(
   options
 )
 
+const associate = (Schedulers, { User }) => {
+  Schedulers.belongsTo(User, {
+    foreign_key: 'user_id'
+  })
+}
 
 module.exports = {
   create,
+  associate
 }
