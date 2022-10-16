@@ -8,11 +8,10 @@ const {
 
 const create = async (payload) => {
   try {
-    console.log('Inside service with this payload >', payload)
-    // const user = await User.findByPk(payload.user_id)
-    // if (!user) {
-    //   throw new BadRequestError('Errado')
-    // }
+    const user = await User.findByPk(payload.user_id)
+    if (!user) {
+      throw new BadRequestError('Errado')
+    }
 
     const x = {
       pet_name: payload.pet_info.pet_name,
@@ -21,19 +20,28 @@ const create = async (payload) => {
       race_pet: payload.pet_info.race_pet,
       weight_pet: payload.pet_info.weight_pet
     }
-    console.log('OLHAAAAAAAAA', payload.pet_info)
 
     const final = JSON.stringify(x)
 
+    const testando = {
+      pet_info: final,
+      hour: payload.hour,
+      tag: payload.tag,
+      user_id: payload.user_id,
+      separate: payload.separate || false,
+    }
+    console.log('Inside service with this schedule >', testando)
+
+
     const schedule = await Scheduler.create({
       pet_info: final,
-      tag: payload.tag,
       hour: payload.hour,
-      separate: payload.separate,
-      user_id: payload.user_id
-    })
+      tag: payload.tag,
+      user_id: payload.user_id,
+      separate: payload.separate || false,
+    }, {raw: true})
 
-    console.log('Inside service with this schedule >', schedule)
+    console.log('Terminou >', schedule.toJSON())
 
 
     return schedule
